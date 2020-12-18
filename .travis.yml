@@ -4,13 +4,13 @@ services:
   - docker
 
 before_install:
-  - docker build -t vininepo/docker-react -f Dockerfile.dev .
+  - docker build -t ViniNepo/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true vininepo/docker-react npm run test
+  - docker run -e CI=true ViniNepo/docker-react npm run test
 
 deploy:
-  provider: vininepo
+  provider: elasticbeanstalk
   region: "us-east-2"
   app: "docker-react"
   env: "DockerReact-env-1"
